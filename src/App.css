@@ -1,0 +1,200 @@
+:root {
+  --clr-label-set0: #f7ddbc;
+  --clr-label-set1: #66c2a5;
+  --clr-label-set2: #fc8d62;
+  --clr-label-set3: #8da0cb;
+  --clr-label-set4: #e78ac3;
+  --clr-label-set5: #a6d854;
+  --clr-background: rgb(1, 23, 56);
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  text-align: center;
+  background-color: rgb(70, 87, 102);
+}
+
+h3 {
+  padding-bottom: 0.5rem;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.column {
+  flex: 0 1 50%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--clr-background);
+}
+
+footer {
+  padding-bottom: 0.5rem;
+}
+
+.container {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(3, max(80px, 30vmin));
+  grid-template-rows: repeat(3, max(80px, 30vmin));
+  grid-template-areas:
+    "  . . . "
+    "  . control . "
+    "  . . . ";
+}
+
+.svg-grid {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+}
+
+.marker-line {
+  stroke: #ffecb3;
+}
+
+/*Graph node*/
+
+.graph-node {
+  fill: #f7ddbc;
+}
+
+.graph-node.label-0 {
+  fill: var(--clr-label-set0);
+}
+
+.graph-node.label-1 {
+  fill: var(--clr-label-set1);
+}
+
+.graph-node.label-2 {
+  fill: var(--clr-label-set2);
+}
+
+.graph-node.label-3 {
+  fill: var(--clr-label-set3);
+}
+
+.graph-node.label-4 {
+  fill: var(--clr-label-set4);
+}
+
+.graph-node.label-5 {
+  fill: var(--clr-label-set5);
+}
+
+/**/
+
+.edge-line {
+  stroke: white;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  grid-area: control;
+  overflow: hidden;
+  color: white;
+}
+
+.logo {
+  display: none;
+  margin: auto;
+}
+
+.vertical-control-group {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1rem repeat(5, 1fr) 1rem;
+  grid-template-rows: 1fr 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+}
+
+@media only screen and (min-width: 2560px) {
+  :root {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 700px) {
+  .control-title {
+    display: none;
+  }
+
+  .container {
+    padding: 0 1rem;
+    grid-template-columns: repeat(3, max(80px, 27.5vmin));
+    grid-template-rows: repeat(3, max(80px, 27.5vmin)) 1fr 50vmin;
+    grid-template-areas:
+      " . . . "
+      " . logo . "
+      " . . . "
+      " . . ."
+      " control control control";
+  }
+  .control-group {
+    padding-top: 0.5rem;
+  }
+
+  .logo {
+    grid-area: logo;
+    display: block;
+  }
+
+  footer {
+    padding: 0.5rem;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 700px) and (min-height: 800px) {
+  .container {
+    padding-top: 2rem;
+    grid-template-rows: repeat(3, max(80px, 30vmin)) 1fr 90vmin;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-height: 700px) {
+  .column {
+    justify-content: space-between;
+  }
+
+  .control-title {
+    display: none;
+  }
+
+  .control-group {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .container {
+    padding: 0rem 1rem 0.5rem;
+    grid-template-columns: repeat(3, max(80px, 25vmin)) 75vmin;
+    grid-template-rows: repeat(3, max(80px, 25vmin));
+    grid-template-areas:
+      " . . . control"
+      " . logo . control"
+      " . . . control";
+  }
+
+  .logo {
+    grid-area: logo;
+    display: block;
+  }
+}

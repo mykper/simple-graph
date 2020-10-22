@@ -22,7 +22,7 @@ export const InnerGraphView = React.memo(({ graph }) => {
   //Show upto 5 components containing more than 4 vertices
   const components = graph
     .getComponents()
-    .sort((c0, c1) => c0.length < c1.length)
+    .sort((c0, c1) => c1.length - c0.length)
     .filter((c) => c.length > 4)
     .slice(0, 5);
 
